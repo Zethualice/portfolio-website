@@ -1,25 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Zethu Nkosi Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zethu Nkosi | Developer Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* Hero Layout */
+
+#home{
+display:flex;
+justify-content:center;
+align-items:center;
+height:90vh;
+text-align:center;
+flex-direction:column;
+}
+
+.name{
+color:#ffd6f4;
+}
+
+.hero-text h2{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero-text h3{
+font-size:28px;
+min-height:40px;
+}
+
+.hero-text p{
+font-size:20px;
+margin-top:10px;
+}
+
+/* CV Button */
+
+.cv-button{
+display:inline-block;
+margin-top:25px;
+padding:12px 25px;
+background:white;
+color:#8e44ad;
+font-weight:bold;
+border-radius:8px;
+transition:0.3s;
+}
+
+.cv-button:hover{
+transform:translateY(-4px);
+background:#ffd6f4;
+}
+
+/* Cursor */
+
+.cursor{
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0;}
+100%{opacity:1;}
+}
+
+/* Github section */
+
+#github{
+text-align:center;
+padding:60px 20px;
+}
+
+#github img{
+margin-top:20px;
+max-width:500px;
+width:90%;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Hello, I'm Zethu Nkosi 👋</h1>
-<p>Welcome to my portfolio website.</p>
+<header>
 
-<h2>Skills</h2>
-<ul>
-<li>Java</li>
-<li>Python</li>
-<li>Linux</li>
-<li>Git</li>
-<li>HTML</li>
-</ul>
+<h1>Zethu Nkosi 👋</h1>
 
-<h2>Contact</h2>
-<p>LinkedIn: linkedin.com/in/zethu-nkosi</p>
+<nav>
+<a href="index.html" class="nav-button">Home</a>
+<a href="about.html" class="nav-button">About</a>
+<a href="skills.html" class="nav-button">Skills</a>
+<a href="projects.html" class="nav-button">Projects</a>
+<a href="contact.html" class="nav-button">Contact</a>
+</nav>
+
+</header>
+
+<section id="home">
+
+<div class="hero-text">
+
+<h2>Hi, I'm <span class="name">Zethu Nkosi</span></h2>
+
+<h3>
+<span id="typing"></span><span class="cursor">|</span>
+</h3>
+
+<p>
+I build software, solve problems and explore new technologies.
+</p>
+
+<a href="assets/ZethuNkosiCV.pdf" class="cv-button" download>
+Download CV
+</a>
+
+</div>
+
+</section>
+
+<section id="github">
+
+<h2>GitHub Activity</h2>
+
+<img src="https://github-readme-stats.vercel.app/api?username=Zethualice&show_icons=true&theme=radical">
+
+</section>
+
+<script>
+
+/* Typing animation */
+
+const text = [
+"Software Developer",
+"Java & Python Programmer",
+"Linux Enthusiast",
+"Future Software Engineer"
+];
+
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+function type(){
+
+if(count === text.length){
+count = 0;
+}
+
+currentText = text[count];
+letter = currentText.slice(0, ++index);
+
+document.getElementById("typing").textContent = letter;
+
+if(letter.length === currentText.length){
+count++;
+index = 0;
+setTimeout(type,1500);
+}
+else{
+setTimeout(type,80);
+}
+
+}
+
+type();
+
+</script>
 
 </body>
 </html>

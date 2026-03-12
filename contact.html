@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Zethu Nkosi</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* Contact buttons */
+.contact-info button {
+  margin: 10px;
+  padding: 12px 22px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-info button:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.05);
+}
+
+/* Output typing area */
+#output {
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: monospace;
+  min-height: 30px;
+}
+
+/* Blinking cursor */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+  <h1>Zethu Nkosi 👋</h1>
+  <nav>
+    <a href="index.html" class="nav-button">Home</a>
+    <a href="about.html" class="nav-button">About</a>
+    <a href="skills.html" class="nav-button">Skills</a>
+    <a href="projects.html" class="nav-button">Projects</a>
+    <a href="contact.html" class="nav-button">Contact</a>
+  </nav>
+</header>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+
+  <div class="contact-info">
+    <button onclick="typeText('zethu1490@gmail.com')">Email</button>
+    <button onclick="typeText('znkosi023@student.wethinkcode.co.za')">Student Email</button>
+    <button onclick="typeText('0659423740')">Phone</button>
+    <button onclick="typeText('https://www.linkedin.com/in/zethu-nkosi-6422022b0/')">LinkedIn</button>
+    <button onclick="typeText('https://github.com/Zethualice')">GitHub</button>
+  </div>
+
+  <div id="output"></div>
+
+</section>
+
+<script>
+
+let typingInterval;
+
+function typeText(text) {
+
+  clearInterval(typingInterval);
+
+  const output = document.getElementById("output");
+  output.innerHTML = '<span id="typed"></span><span class="cursor">|</span>';
+
+  const typed = document.getElementById("typed");
+
+  let i = 0;
+
+  typingInterval = setInterval(() => {
+
+    typed.textContent += text.charAt(i);
+    i++;
+
+    if (i >= text.length) {
+      clearInterval(typingInterval);
+    }
+
+  }, 90);
+
+}
+
+</script>
+
+</body>
+</html>
