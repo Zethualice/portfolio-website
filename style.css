@@ -38,7 +38,11 @@ header {
   top: 0;
   z-index: 100;
 }
-
+.project-card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+border-radius:15px;
+}
 header h1 {
   font-size: 24px;
 }
@@ -336,4 +340,17 @@ RESPONSIVE
     max-width: 250px;
   }
 
+}
+.tech-icons span{
+background:rgba(255,255,255,0.15);
+padding:14px 20px;
+border-radius:10px;
+font-weight:bold;
+transition:0.3s;
+font-size:18px;
+}
+
+.tech-icons span:hover{
+transform:translateY(-6px);
+background:rgba(255,255,255,0.35);
 }
